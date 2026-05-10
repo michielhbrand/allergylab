@@ -21,6 +21,6 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN}}
       - name: Push images to DockerHub
         run: |
-          docker push ${​{ secrets.DOCKER_USERNAME }}/al-app:latest
-          docker push ${​{ secrets.DOCKER_USERNAME }}/al-db-loader:latest
-          docker push ${​{ secrets.DOCKER_USERNAME }}/al-email:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/al-app:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/al-db-loader:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/al-email:latest
