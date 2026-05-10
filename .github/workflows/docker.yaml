@@ -62,7 +62,8 @@ jobs:
       run: |
         APP_IMAGE=${{ secrets.DOCKER_USERNAME }}/al-app:${{ github.sha }}
         docker pull $APP_IMAGE
-        cosign verify --certificate-identity https://github.com/${{ github.actor }}/allergylab/.github/workflows/docker.yaml@refs/heads/main --certificate-oidc-issuer https://token.actions.githubusercontent.com $APP_IMAGE
+        cosign verify --
+        -identity https://github.com/${{ github.actor }}/allergylab/.github/workflows/docker.yaml@refs/heads/main --certificate-oidc-issuer https://token.actions.githubusercontent.com $APP_IMAGE
         DB_LOADER_IMAGE=${{ secrets.DOCKER_USERNAME }}/al-db-loader:${{ github.sha }}
         docker pull $DB_LOADER_IMAGE
         cosign verify --certificate-identity https://github.com/${{ github.actor }}/allergylab/.github/workflows/docker.yaml@refs/heads/main --certificate-oidc-issuer https://token.actions.githubusercontent.com $DB_LOADER_IMAGE
