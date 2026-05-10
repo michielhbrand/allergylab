@@ -17,14 +17,17 @@ services:
       depends_on:
         - redis-server
       environment:
-        TO_ADDRESS: <your Quantic email>
-        FROM_ADDRESS: <new Gmail email>
-        FROM_PASSWORD: <Gmail app password>
+        TO_ADDRESS: michielsefoon@gmail.com
+        FROM_ADDRESS: michielsefoon@gmail.com
+        FROM_PASSWORD: dkqqflchxrtlfhkb
     db-loader:
       build: db-loader/.
       volumes: 
-        - <Enter Here>allergy-lab-watchfolder:/mnt/watchfolder/
+        - C:\Users\Michiel\Desktop\Code\Quantic\Microservices\watchfolder:/mnt/watchfolder/
       environment:
         FOLDER_PATH: /mnt/watchfolder/
+        DB_NAME: allergen_info
+        DB_USER: pythonapp
+        DBPASS: secretPass123!
       depends_on:
         - dbhost
